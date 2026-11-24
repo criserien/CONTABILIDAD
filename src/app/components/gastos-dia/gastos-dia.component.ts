@@ -69,7 +69,7 @@ export class GastosDiaComponent implements OnInit {
   }
 
   private cargarTotal(): void {
-    const url = `http://localhost:3000/gastos/${this.fechaActual.getFullYear()}/${this.fechaActual.getMonth() + 1}/${this.fechaActual.getDate()}`;
+    const url = `https://back-gastos.vercel.app/${this.fechaActual.getFullYear()}/${this.fechaActual.getMonth() + 1}/${this.fechaActual.getDate()}`;
     this.cargandoTotal = true;
 
     this.http.get<GastoDiaResponse>(url).subscribe({

@@ -99,7 +99,7 @@ export class Balance2Component implements OnInit {
   totalBackend: number = 0;
   cargandoTotal: boolean = false;
 
-  private readonly API_URL = 'http://localhost:3000';
+  private readonly API_URL = 'https://back-gastos.vercel.app';
 
   constructor(private http: HttpClient, private TotalFacturasService: Total_facturasService, private router: Router) {
     const navegacion = this.router.getCurrentNavigation();

@@ -1,0 +1,98 @@
+<div class="calendar-container">
+  <!-- Muestra el nombre del mes y el año dinámico (si no viene año, usa 2026 por defecto) -->
+  <h2>{{ obtenerNombreMes() }} {{ anioRecibido || 2026 }}</h2>
+
+  <!-- Nombres de los días -->
+  <div class="nom-dias">
+    <div class="day-name">Lu</div>
+    <div class="day-name">Ma</div>
+    <div class="day-name">Mi</div>
+    <div class="day-name">Ju</div>
+    <div class="day-name">Vi</div>
+    <div class="day-name">Sá</div>
+    <div class="day-name">Do</div>
+  </div>
+
+  <div class="nom-dias">
+    <!-- Espacios vacíos para ajustar el inicio -->
+    <div class="empty"></div>
+    <div class="empty"></div>
+    <div class="empty"></div>
+
+    <!-- Días del mes (del 1 al 31) -->
+    <div class="day" (click)="navegarADetalle($event)">1</div>
+    <div class="day" (click)="navegarADetalle($event)">2</div>
+    <div class="day" (click)="navegarADetalle($event)">3</div>
+    <div class="day" (click)="navegarADetalle($event)">4</div>
+  </div>
+
+  <div class="nom-dias">
+    <div class="day" (click)="navegarADetalle($event)">5</div>
+    <div class="day" (click)="navegarADetalle($event)">6</div>
+    <div class="day" (click)="navegarADetalle($event)">7</div>
+    <div class="day" (click)="navegarADetalle($event)">8</div>
+    <div class="day" (click)="navegarADetalle($event)">9</div>
+    <div class="day" (click)="navegarADetalle($event)">10</div>
+    <div class="day" (click)="navegarADetalle($event)">11</div>
+  </div>
+
+  <div class="nom-dias">
+    <div class="day" (click)="navegarADetalle($event)">12</div>
+    <div class="day" (click)="navegarADetalle($event)">13</div>
+    <div class="day" (click)="navegarADetalle($event)">14</div>
+    <div class="day" (click)="navegarADetalle($event)">15</div>
+    <div class="day" (click)="navegarADetalle($event)">16</div>
+    <div class="day" (click)="navegarADetalle($event)">17</div>
+    <div class="day" (click)="navegarADetalle($event)">18</div>
+  </div>
+
+  <div class="nom-dias">
+    <div class="day" (click)="navegarADetalle($event)">19</div>
+    <div class="day" (click)="navegarADetalle($event)">20</div>
+    <div class="day" (click)="navegarADetalle($event)">21</div>
+    <div class="day" (click)="navegarADetalle($event)">22</div>
+    <div class="day" (click)="navegarADetalle($event)">23</div>
+    <div class="day" (click)="navegarADetalle($event)">24</div>
+    <div class="day" (click)="navegarADetalle($event)">25</div>
+  </div>
+
+  <div class="nom-dias">
+    <div class="day" (click)="navegarADetalle($event)">26</div>
+    <div class="day" (click)="navegarADetalle($event)">27</div>
+    <div class="day" (click)="navegarADetalle($event)">28</div>
+    <div class="day" (click)="navegarADetalle($event)">29</div>
+    <div class="day" (click)="navegarADetalle($event)">30</div>
+    <div class="day" (click)="navegarADetalle($event)">31</div>
+    <div class="empty"></div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- BLOQUE TOTAL DEL MES                        -->
+  <!-- ============================================ -->
+  <div class="total-mes-card">
+    <div class="total-mes-header">
+      <span class="total-mes-icon">📊</span>
+      <h3>Total de facturas del mes</h3>
+    </div>
+
+    <p class="total-mes-subtitulo">
+      {{ obtenerNombreMes() }} {{ anioRecibido || 2026 }}
+    </p>
+
+    <div *ngIf="cargandoTotal" class="total-mes-cargando">
+      Cargando...
+    </div>
+
+    <div *ngIf="!cargandoTotal && !errorTotal" class="total-mes-valor">
+      <span class="total-mes-monto">${{ totalMes }}</span>
+      <span class="total-mes-cantidad">
+        ({{ totalFacturas }} factura{{ totalFacturas === 1 ? '' : 's' }})
+      </span>
+    </div>
+
+    <div *ngIf="errorTotal" class="total-mes-error">
+      ⚠️ {{ errorTotal }}
+    </div>
+  </div>
+
+</div>

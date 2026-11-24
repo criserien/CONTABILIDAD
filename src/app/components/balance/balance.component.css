@@ -1,0 +1,80 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: 90vw;
+  background-color: white;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* --- BASE y BASE NEQUI --- */
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.75rem auto;
+  flex-wrap: wrap;
+}
+
+.base h2 {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.base input {
+  padding: 0.55rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  outline: none;
+  width: 200px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  text-align: right;
+}
+
+.base input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* --- Botón subir --- */
+.btn-subir {
+  width: 250px;
+  height: 32px;
+  border: none;
+  background: #27ae60;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease,
+              box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(39, 174, 96, 0.35);
+  padding: 30px;
+}
+
+.btn-subir:hover {
+  background: #219150;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(39, 174, 96, 0.45);
+}
+
+.btn-subir:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(39, 174, 96, 0.35);
+}

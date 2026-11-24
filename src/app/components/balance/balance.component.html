@@ -1,0 +1,80 @@
+<div class="contenedor">
+  <!-- Título con fecha actual -->
+  <header class="cabecera">
+    <h1>BALANCE : {{ fechaActual | date:'fullDate' }}</h1>
+    <p class="fecha">{{ fechaActual | date:'shortTime' }}</p>
+
+    <!-- BASE -->
+    <div class="base">
+      <h2>BASE : $</h2>
+      <input
+        type="number"
+        [(ngModel)]="base"
+        placeholder="Ingrese la base"
+      />
+    </div>
+
+    <!-- BASE NEQUI -->
+    <div class="base">
+      <h2>BASE NEQUI : $</h2>
+      <input
+        type="number"
+        [(ngModel)]="baseNequi"
+        placeholder="Ingrese base Nequi"
+      />
+    </div>
+
+    <div class="base">
+      <button
+        class="btn-subir"
+        title="Subir base"
+        (click)="subirBase()"
+        [disabled]="subiendoBase"
+      >
+        {{ subiendoBase ? 'SUBIENDO...' : 'SUBIR BASE' }}
+      </button>
+    </div>
+
+    <h2>GASTOS : $ {{ totalBackend }}</h2>
+    <h2>VENTAS : $ {{ sumaTotalGeneral$ | async }}</h2>
+
+    <!-- BASE FINAL -->
+    <div class="base">
+      <h2>BASE FINAL : $</h2>
+      <input
+        type="number"
+        [(ngModel)]="baseFinal"
+        placeholder="Ingrese la base final"
+      />
+    </div>
+
+    <!-- BASE NEQUI FINAL -->
+    <div class="base">
+      <h2>BASE NEQUI FINAL : $</h2>
+      <input
+        type="number"
+        [(ngModel)]="baseNequiFinal"
+        placeholder="Ingrese base Nequi final"
+      />
+    </div>
+
+    <div class="base">
+      <button
+        class="btn-subir"
+        title="Subir base final"
+        (click)="subirBaseFinal()"
+        [disabled]="subiendoBaseFinal"
+      >
+        {{ subiendoBaseFinal ? 'SUBIENDO...' : 'SUBIR BASE FINAL' }}
+      </button>
+    </div>
+  </header>
+  <div>
+    <p class="guardado">
+  Guardado hoy → BASE: ${{ base2 }} | NEQUI: ${{ base_nequi2 }}
+    </p>
+    <p class="guardado">
+  Guardado hoy → BASE FINAL: ${{ base_final2 }} | NEQUI FINAL: ${{ base_nequi_final2 }}
+    </p>
+  </div>
+</div>

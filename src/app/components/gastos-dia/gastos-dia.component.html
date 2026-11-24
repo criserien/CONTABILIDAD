@@ -1,0 +1,37 @@
+<div class="contenedor">
+  <!-- Título con fecha actual -->
+  <header class="cabecera">
+    <h1>Productos : {{ fechaActual | date:'fullDate' }}</h1>
+    <h2>Total</h2>
+    <h2>{{ totalBackend | currency:'COP':'symbol':'1.0-0' }}</h2>
+    <p class="fecha">{{ fechaActual | date:'shortTime' }}</p>
+</header>
+
+  <!-- Tabla de productos -->
+  <table class="tabla-productos">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Producto</th>
+        <th>Detalle</th>
+        <th class="col-precio">Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productos; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.detalle }}</td>
+        <td class="col-precio">{{ p.precio | currency:'COP':'symbol':'1.0-0' }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="total-label">TOTAL</td>
+        <td class="col-precio total-valor">
+          {{ total | currency:'COP':'symbol':'1.0-0' }}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
